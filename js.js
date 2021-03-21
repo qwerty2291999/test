@@ -17,9 +17,6 @@ class Basket {
   addItem(item){
     this.items.push(item)
   }
-  removeItem(item){
-  	this.items.pop(item);
-  }
 }
 
 let basket = new Basket();
