@@ -809,3 +809,11 @@ footer .container{
 	color: white;
 	line-height: 120px;
 }
+#empty-cart{
+	display: block;
+	font-size: 20px;
+	font-weight: 800;
+	line-height: 449px;
+	padding-left: 60px;
+
+}
