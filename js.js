@@ -46,7 +46,7 @@ function addItem(index) {
   	showBasket()
 }
 function removeItem(index) {
-    basket.removeItem(index)
+    basket.removeItem(index);
     showBasket()
 }
 function showBasket() {
@@ -64,7 +64,12 @@ function showBasket() {
   for(price of prices){
     e = parseInt(price.innerText);
   }
-   var cartsTotal = document.querySelectorAll(".cart-total");
+  if(basket.items.length == 0)
+  {
+    cart.innerHTML = "<span id=empty-cart>Your cart is empty!</span>";
+  }
+  var cartsTotal = document.querySelectorAll(".cart-total");
+  
   var btnPlus = document.querySelectorAll(".plus");
     for(plus of btnPlus) {
       plus.onclick = function(){
@@ -118,6 +123,7 @@ var btnMinus = document.querySelectorAll(".minus");
           var result = arr.reduce((a, b) => a + b, 0)
           innerTotal.innerHTML = "Total Price : "+result+"$";
 }
+showBasket();
 var market = document.getElementById("product-items");
 let add = items.map((item, index)=>"<div class=item><div class=item-img><a href=#><img src="+item.image+"></a><div class=add-item onClick=addItem("+index+")><p>Add</p></div></div><div class=item-info><a href=#>"+item.name+"</a><div class=price-box><span class=old-price>"+item.price+"$"+"</span><span class=price>"+item.discountPrice+"$"+"</span></div></div></div>").join("");
 market.innerHTML = add;
@@ -153,7 +159,7 @@ setInterval(function(){
 		slide[i].classList.remove("hidden")
 	}
 }
-},3000);
+},5000);
 
 var input = document.getElementById("search-input");
 var btn = document.getElementById("search-btn");
